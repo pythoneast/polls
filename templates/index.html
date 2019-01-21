@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-8 mx-auto d-block text-center">
+            <h1>Main Page</h1>
+            {% if latest_question_list %}
+                <ul>
+                    {% for question in latest_question_list %}
+                        <li>
+                            <a href="{% url 'polls:details' question.id %}">{{ question.question_text }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No polls are available</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
